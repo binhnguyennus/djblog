@@ -7,7 +7,7 @@ from django.db.models import Count
 from taggit.models import Tag
 
 from .models import Post, Comment
-from .forms import EmailPostForm, CommentForm
+from .forms import EmailPostForm, CommentForm, SearchForm
 from haystack.query import SearchQuerySet
 
 
@@ -75,6 +75,7 @@ def post_detail(request, year, month, day, post):
                                                      'similar_posts': similar_posts})
 
 
+
 def post_share(request, post_id):
     # Retrieve post by id
     post = get_object_or_404(Post, id=post_id, status='published')
@@ -96,6 +97,7 @@ def post_share(request, post_id):
     return render(request, 'blog/post/share.html', {'post': post,
                                                     'form': form,
                                                     'sent': sent})
+
 
 def post_search(request):
     form = SearchForm()

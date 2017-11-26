@@ -28,6 +28,8 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+SITE_ID = 1
+
 # Application definition
 
 INSTALLED_APPS = (
@@ -41,7 +43,7 @@ INSTALLED_APPS = (
     'taggit',
     'django.contrib.sites',
     'django.contrib.sitemaps',
-    'haystack'
+    'haystack',
 )
 
 
@@ -106,7 +108,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# Haystack
+
+#EMAIL_HOST = 'smtp.gmail.com'
+#EMAIL_HOST_USER = 'my_account@gmail.com'
+#EMAIL_HOST_PASSWORD = ''
+#EMAIL_PORT = 587
+#EMAIL_USE_TLS = True
+
 HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
